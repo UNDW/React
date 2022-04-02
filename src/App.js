@@ -6,12 +6,14 @@ import Dialogs from './components/Dialogs/Dialogs';
 //import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
 import { Route, Routes, NavLink } from 'react-router-dom'
-import { Layout, Menu, Breadcrumb, } from 'antd';
+import { Layout, Menu } from 'antd';
 import { UserOutlined, LaptopOutlined, SettingOutlined } from '@ant-design/icons';
 const { SubMenu } = Menu;
 const { Header, Content, Footer, Sider } = Layout;
 
-const App = () => {
+const App = (props) => {
+
+
 
   return (
     <Layout>
@@ -20,7 +22,7 @@ const App = () => {
         <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
           <Menu.Item key="1">
             Social Network
-            </Menu.Item>
+          </Menu.Item>
         </Menu>
       </Header>
       <Content style={{ padding: '0 50px' }}>
@@ -31,11 +33,11 @@ const App = () => {
               defaultSelectedKeys={['1']}
               defaultOpenKeys={['sub1']}
               style={{ height: '100%' }}
-            > 
+            >
               <SubMenu key="sub1" icon={<UserOutlined />} title="My profile">
                 <Menu.Item key="1"><NavLink to='./profile'>Profile</NavLink></Menu.Item>
                 <Menu.Item key="2"><NavLink to='/dialogs'>Message</NavLink></Menu.Item>
-      
+
               </SubMenu>
               <SubMenu key="sub2" icon={<LaptopOutlined />} title="Tools">
                 <Menu.Item key="5">Music</Menu.Item>
@@ -49,21 +51,20 @@ const App = () => {
                 <Menu.Item key="12">Contact</Menu.Item>
                 <Menu.Item key="13">Language</Menu.Item>
               </SubMenu>
-              
-             
+
             </Menu>
           </Sider>
           <Content style={{ padding: '0 24px', minHeight: 280 }}>
-            
-              <Routes>
-                <Route path="/dialogs" element={<Dialogs />} />
-                <Route path="/profile" element={<Profile />} />
-              </Routes>
-       
+
+            <Routes>
+              <Route path="/dialogs" element={<Dialogs state={props.state.dialogsPage} />} />
+              <Route path="/profile" element={<Profile state={props.state.profilePage} />} />
+            </Routes>
+
           </Content>
         </Layout>
       </Content>
-      <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+      <Footer style={{ textAlign: 'center' }}>Create by Kraiev Oleh</Footer>
     </Layout>
   )
 };
