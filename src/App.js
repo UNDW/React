@@ -2,8 +2,6 @@ import 'antd/dist/antd.css';
 import React from 'react';
 import './App.css'
 import Dialogs from './components/Dialogs/Dialogs';
-//import Header from './components/Header/Header';
-//import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
 import { Route, Routes, NavLink } from 'react-router-dom'
 import { Layout, Menu } from 'antd';
@@ -12,8 +10,6 @@ const { SubMenu } = Menu;
 const { Header, Content, Footer, Sider } = Layout;
 
 const App = (props) => {
-
-
 
   return (
     <Layout>
@@ -57,8 +53,15 @@ const App = (props) => {
           <Content style={{ padding: '0 24px', minHeight: 280 }}>
 
             <Routes>
-              <Route path="/dialogs" element={<Dialogs state={props.state.dialogsPage} />} />
-              <Route path="/profile" element={<Profile state={props.state.profilePage} />} />
+              <Route path="/dialogs" 
+              element={<Dialogs 
+              state={props.state.dialogsPage} />} />
+              <Route path="/profile" 
+              element={<Profile 
+              profilePage={props.state.profilePage} 
+              addPost={props.addPost}
+              updateNewPostText={props.updateNewPostText}
+              />} />
             </Routes>
 
           </Content>
