@@ -11,6 +11,7 @@ const { Header, Content, Footer, Sider } = Layout;
 
 const App = (props) => {
 
+
   return (
     <Layout>
       <Header className="header">
@@ -55,12 +56,12 @@ const App = (props) => {
             <Routes>
               <Route path="/dialogs" 
               element={<Dialogs 
-              state={props.state.dialogsPage} />} />
+              store={props.store}
+              />} />
               <Route path="/profile" 
               element={<Profile 
               profilePage={props.state.profilePage} 
-              addPost={props.addPost}
-              updateNewPostText={props.updateNewPostText}
+              dispatch={props.dispatch}
               />} />
             </Routes>
 
