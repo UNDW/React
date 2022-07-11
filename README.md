@@ -1,3 +1,7 @@
+# В данном проекте я создаю социальную сеть по видео курсу Реакта /// In this project, I am creating a social network using the React video course.
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
